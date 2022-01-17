@@ -55,7 +55,71 @@ console.log(typeof dataFromThirdParty);
 
 // VOID - seen in functions that return no value
 
-function sayHelloToAll() : void {
-    console.log("Hello to all!")
+// function sayHelloToAll() : void {
+//     console.log("Hello to all!")
+// }
+
+//Null and Undefined
+
+let undefinedVariable: undefined = undefined;
+let nullVariable: null = null;
+
+//Tuple - abbreviation of mulTuple
+//Declare a tuple type
+let usernameAndId: [number, string];
+//Initialize it
+usernameAndId = [1, "kennisreally40"]; //OK - Also, you'll get an error if you initialize the array out of order of how it was declared
+
+//Enum - with this we can give names to numeric values
+enum WeaponType { Sword, Saber, Spear }
+let weapon: WeaponType = WeaponType.Sword
+//Like arrays, enums start at 0 but the string index can be assigned a different number:
+enum CardType { Ace = 1, Two, Three, Four }
+let cardType: string = CardType[2]
+console.log(cardType)
+
+//Union Types - Allows more flexibility with our variables
+let x: number | string;
+let y: number | null;
+//Now the variables can take on more than one type.
+x = '12345';
+x = 1234; //As you can see, we are getting no errors. With Boolean, however...
+
+// x = true;
+// y = false; // We can use Union Types with Optionals later
+
+// Annotation
+
+function demoFunction(someNum){
+    return someNum;
 }
 
+demoFunction(1); //1
+demoFunction("stuff"); //2
+// demoFunction(1, "Stuff"); //3 erroring out when it shouldn't
+
+function addNumbers(numOne: number, numTwo: number){
+    return numOne + numTwo;
+}
+
+//1 - Works
+addNumbers(1, 2);
+
+//2 - Errors
+// addNumbers(1, 2, 3);
+// addNumbers(1, 2, 3, "Foo");
+
+//RETURN TYPES
+
+function hello(greetingString){
+    return greetingString;
+}
+
+// foo(1); //1
+
+function sayHelloToAll(name: string) : string {
+    return name;
+}
+
+sayHelloToAll("Kenn");
+// sayHelloToAll(1);
